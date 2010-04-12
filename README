@@ -1,0 +1,26 @@
+README
+======
+
+PHP Toolkit?
+----------------
+
+PHP Toolkit is library of validators, helpers and other kind
+of stuff that should help us in programming day-to-day job.
+
+Reinventing the wheel is not needed :)
+
+Requirements
+------------
+
+PHP Toolkit is mainly developed on PHP 5.3.x branch.
+
+Running it on lower PHP version can cause some problems
+but in that case just use the issue form [1] and it should
+be fixed.
+
+Wait. You are a programmer right?
+Good news! That's mean that You can fork this repo and fix
+it yourself. Just remember to give me a tip so I commit
+your changes for others. Thanks in advance for this :)
+
+[1] http://github.com/tomaszsobczak/php-toolkit/issues 
