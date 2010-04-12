@@ -12,8 +12,8 @@
   @subpackage Validators
 */
 
-define('ISBN_10_DIVISOR_VALUE', 11);
-define('ISBN_13_DIVISOR_VALUE', 10);
+define('ISBN_10_MODULO_DIVISOR', 11);
+define('ISBN_13_MODULO_DIVISOR', 10);
 
 function is_valid_isbn($isbn)
 {
@@ -29,7 +29,7 @@ function is_valid_isbn($isbn)
     foreach(range(1, 9) as $weight)
     { $isbn_sum += $weight * array_shift($isbn_digits); }
     
-    return (10 == ($isbn_mod = ($isbn_sum % ISBN_10_DIVISOR_VALUE))) ? ('x' == mb_strtolower(array_shift($isbn_digits), 'UTF-8')) : ($isbn_mod == array_shift($isbn_digits));
+    return (10 == ($isbn_mod = ($isbn_sum % ISBN_10_MODULO_DIVISOR))) ? ('x' == mb_strtolower(array_shift($isbn_digits), 'UTF-8')) : ($isbn_mod == array_shift($isbn_digits));
   }
   
   if(13 == $isbn_length)
@@ -37,7 +37,7 @@ function is_valid_isbn($isbn)
     foreach(array(1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3) as $weight)
     { $isbn_sum += $weight * array_shift($isbn_digits); }
     
-    return (0 == ($isbn_mod = ($isbn_sum % ISBN_13_DIVISOR_VALUE))) ? (0 == array_shift($isbn_digits)) : ($isbn_mod == (10 - array_shift($isbn_digits)));
+    return (0 == ($isbn_mod = ($isbn_sum % ISBN_13_MODULO_DIVISOR))) ? (0 == array_shift($isbn_digits)) : ($isbn_mod == (10 - array_shift($isbn_digits)));
   }
   
   return false;
