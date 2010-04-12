@@ -4,15 +4,15 @@
   International Bank Account Number (IBAN) validator
 
   usage:
-    $ret = is_valid_iban('78 1140 2004 0000 3102 4463 3880', 'PL')
+    $ret = is_valid_iban('78 1140 2004 0000 3102 4463 3880', 'PL');
 
   @author     Tomasz Sobczak (http://tomaszsobczak.com)
   @package    PHP Toolkit (http://github.com/tomaszsobczak/php-toolkit)
   @subpackage Validators
 */
 
-define('IBAN_CONTROL_VALUE',      1);
-define('IBAN_DIVISOR_VALUE',      97);
+define('IBAN_CONTROL_VALUE',  1);
+define('IBAN_DIVISOR_VALUE',  97);
 
 function is_valid_iban($iban, $country_prefix)
 {
