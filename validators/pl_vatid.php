@@ -11,7 +11,7 @@
   @subpackage Validators
 */
 
-define('VATID_MODULO_DIVISOR', 11);
+define('PTK_VATID_MODULO_DIVISOR', 11);
 
 function is_valid_vatid($vatid)
 {
@@ -25,7 +25,7 @@ function is_valid_vatid($vatid)
   foreach(array(6, 5, 7, 2, 3, 4, 5, 6, 7) as $weight)
   { $vatid_sum += $weight * array_shift($vatid_digits); }
     
-  return (($vatid_sum % VATID_MODULO_DIVISOR) == array_shift($vatid_digits));
+  return (($vatid_sum % PTK_VATID_MODULO_DIVISOR) == array_shift($vatid_digits));
 }
 
 ?>

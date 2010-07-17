@@ -14,7 +14,7 @@
   @subpackage Validators
 */
 
-define('PESEL_MODULO_DIVISOR', 10);
+define('PTK_PESEL_MODULO_DIVISOR', 10);
 
 function is_valid_pesel($pesel)
 {
@@ -27,7 +27,7 @@ function is_valid_pesel($pesel)
   foreach(array(1, 3, 7, 9, 1, 3, 7, 9, 1, 3) as $weight)
   { $pesel_sum += $weight * array_shift($pesel_digits); }
     
-  return (0 == ($pesel_mod = ($pesel_sum % PESEL_MODULO_DIVISOR))) ? (0 == array_shift($pesel_digits)) : ($pesel_mod == (10 - array_shift($pesel_digits)));
+  return (0 == ($pesel_mod = ($pesel_sum % PTK_PESEL_MODULO_DIVISOR))) ? (0 == array_shift($pesel_digits)) : ($pesel_mod == (10 - array_shift($pesel_digits)));
 }
 
 function get_gender_from_pesel($pesel)

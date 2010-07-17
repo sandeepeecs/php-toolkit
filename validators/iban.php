@@ -11,8 +11,8 @@
   @subpackage Validators
 */
 
-define('IBAN_CONTROL_VALUE',  1);
-define('IBAN_DIVISOR_VALUE',  97);
+define('PTK_IBAN_CONTROL_VALUE',  1);
+define('PTK_IBAN_DIVISOR_VALUE',  97);
 
 function is_valid_iban($iban, $country_prefix)
 {
@@ -31,7 +31,7 @@ function is_valid_iban($iban, $country_prefix)
   $iban = substr($iban, 4) . substr($iban, 0, 4);
   $iban = str_replace(array_keys($l2d), array_values($l2d), $iban);
   
-  return (IBAN_CONTROL_VALUE == _iban_modulo($iban));
+  return (PTK_IBAN_CONTROL_VALUE == _iban_modulo($iban));
 }
 
 function _iban_modulo($in, $prepend = null)
@@ -42,12 +42,12 @@ function _iban_modulo($in, $prepend = null)
   if(8 < strlen($in))
   {
     $iban_part    = substr($in, 0, 7);
-    $iban_modulo  = $iban_part % IBAN_DIVISOR_VALUE;
+    $iban_modulo  = $iban_part % PTK_IBAN_DIVISOR_VALUE;
 
     return _iban_modulo(substr($in, 7), $iban_modulo);
   }
   
-  return $in % IBAN_DIVISOR_VALUE;
+  return $in % PTK_IBAN_DIVISOR_VALUE;
 }
 
 ?>
